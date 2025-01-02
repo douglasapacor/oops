@@ -1,0 +1,26 @@
+{
+  "name": "oops",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "starts": "tsx src/server.ts",
+    "build": "tsup src"
+  },
+  "dependencies": {
+    "body-parser": "1.20.3",
+    "dotenv": "16.4.7",
+    "ejs": "3.1.10",
+    "express": "4.21.2",
+    "tsup": "8.3.5",
+    "tsx": "4.19.2"
+  },
+  "devDependencies": {
+    "@types/ejs": "3.1.5",
+    "@types/express": "5.0.0",
+    "@types/node": "22.10.4",
+    "ts-node": "10.9.2",
+    "typescript": "5.7.2"
+  }
+}
