@@ -1,36 +1,12 @@
 {
   "name": "oops",
-  "version": "1.0.0",
-  "main": "dist/server/index.js",
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
-    "start": "node dist/server/index.js",
-    "start:dev": "tsx watch src/server/index.ts",
-    "start:ts": "tsx src/server/index.ts",
-    "dev": "concurrently \"npm run build:css-dev\" \"npm run start:dev\"",
-    "build:server": "tsc --build tsconfig.server.json && copyfiles -u 2 src/server/views/**/* dist/server",
-    "build:client": "tsc --build tsconfig.client.json",
-    "build:css-dev": "npx tailwindcss -i ./tailwind.css -o ./public/css/styles.css --watch",
-    "build:css-prod": "npx tailwindcss -i ./tailwind.css -o ./public/css/styles.css",
-    "build": "npm run build:server && npm run build:css-prod && npm run build:client"
-  },
-  "dependencies": {
-    "autoprefixer": "^10.4.20",
-    "body-parser": "1.20.3",
-    "copyfiles": "^2.4.1",
-    "dotenv": "16.4.7",
-    "ejs": "3.1.10",
-    "express": "4.21.2",
-    "express-handlebars": "^8.0.1",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17",
-    "tsx": "4.19.2"
-  },
-  "devDependencies": {
-    "@types/ejs": "3.1.5",
-    "@types/express": "5.0.0",
-    "@types/node": "22.10.4",
-    "concurrently": "^9.1.2",
-    "ts-node": "10.9.2",
-    "typescript": "5.7.2"
+    "install": "npm --prefix client install && npm --prefix server install",
+    "dev": "npm --prefix server run dev && npm --prefix client run dev",
+    "build": "npm --prefix server run build && npm --prefix client run build"
   }
 }
